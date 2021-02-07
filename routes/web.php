@@ -25,6 +25,8 @@ Route::get('/mostrarproyecto/{id}','proyectoController@mostrarproyecto')->name('
 
 Route::get('/mostrarproyecto/eliminar/{id}','proyectoController@destroy')->name('eliminarproyecto');
 
+Route::get('/borrartodos','proyectoController@deleteall')->name('borrartodos');
+
 Route::get('/mostrarproyecto/edit/{id}','proyectoController@edit')->name('editarproyecto');
 
 Route::post('/mostrarproyecto/actualizar','proyectoController@update')->name('actualizarproyecto');

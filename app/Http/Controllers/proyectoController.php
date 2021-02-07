@@ -95,7 +95,7 @@ class proyectoController extends Controller
         $proyecto = Proyecto::find(request("id"));
         $timestamp=now();
 
-        $proyecto = DB::table("proyectos")->where('ID', $proyecto->id)->update([
+        DB::table("proyectos")->where('ID', $proyecto->id)->update([
             "titulo" => request("titulo"),
             "url" => request("url"),
             "descripcion" => request("text"),
@@ -117,5 +117,9 @@ class proyectoController extends Controller
 
         return redirect()->route('listaproyecto');
 
+    }
+    public function deleteall(){
+        Proyecto::where('id', 'like', '%%')->delete();
+        return redirect()->route('listaproyecto');
     }
 }

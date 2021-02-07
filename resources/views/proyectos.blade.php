@@ -30,5 +30,6 @@
             @endforeach
         @endif
     </table>
+    <a href="/borrartodos">Borrar todos los proyectos</a>
 @endsection
 
