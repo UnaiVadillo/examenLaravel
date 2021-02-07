@@ -17,8 +17,7 @@
             <th>Actualizada</th>
             <th>Borrar</th>
         </tr>
-        @if(count($listaproyectos)>0)
-            @foreach($listaproyectos as $proyecto)
+            @forelse($listaproyectos as $proyecto)
                 <tr>
                     <td>{{$proyecto->id}}</td>
                     <td>{{$proyecto->titulo}}</td>
@@ -27,7 +26,9 @@
                     <td>{{$proyecto->updated_at}}</td>
                     <td><a href="/mostrarproyecto/eliminar/{{$proyecto->id}}">Si</a></td>
                 </tr>
-            @endforeach
+            @empty
+                <h1>No hay proyectos</h1>
+            @endforelse
         @endif
     </table>
     <a href="/borrartodos">Borrar todos los proyectos</a>

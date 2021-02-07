@@ -27,16 +27,15 @@ class proyectoController extends Controller
      */
     public function create()
     {
-        $project = new Proyecto(
+        Proyecto::create(
             [
                 "titulo" => request("titulo"),
                 "url" => request("url"),
                 "descripcion" =>  request("descripcion")
             ]);
 
-        $project-> save();
 
-        return $this->show();
+        return redirect()->route("listaproyecto");
 
     }
 
@@ -95,7 +94,7 @@ class proyectoController extends Controller
         $proyecto = Proyecto::find(request("id"));
         $timestamp=now();
 
-        DB::table("proyectos")->where('ID', $proyecto->id)->update([
+        DB::table("proyectos")->where('id', $proyecto->id)->update([
             "titulo" => request("titulo"),
             "url" => request("url"),
             "descripcion" => request("text"),
